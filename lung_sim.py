@@ -76,8 +76,8 @@ def run_multi_model(stripes, speed_factor=10, lung_size=100, Nsim=10000, start_x
     ##debug
     for strip in stripes:
         #make array representing your lung structure. 
-        ## 0 = mucus cells
-        ## 1 = scilia cells
+        ## 0 = secretory cells
+        ## 1 = ciliated cells
         alternation = strip
         lung = np.zeros((lung_size, lung_size)).astype(int)
         count = 0
@@ -129,7 +129,7 @@ def histogram_all(time_list, stripes, spacing=100, title="plot", plot_axis=None)
     maxt = (int(maxt/100)*100) + 100              
     bins = maxt/100
     for idx, strip in enumerate(stripes):
-        plt.hist(time_list[idx], label="Stripe=%d"%strip, alpha=0.5, range=(0,maxt), bins=bins)  
+        plt.hist(time_list[idx], label="Stripe=%d"%strip, alpha=0.5, range=(0,maxt), bins=bins, normed=True)  
     
     plt.legend()
     plt.xlabel("Number of Time Steps")
@@ -161,8 +161,8 @@ def plot_stripes(stripes, lung_size):
     for strip in stripes:
         plt.figure()
         #make array representing your lung structure. 
-        ## 0 = mucus cells
-        ## 1 = scilia cells
+        ## 0 = secretory cells
+        ## 1 = ciliated cells
         alternation = strip
         lung = np.zeros((lung_size, lung_size)).astype(int)
         count = 0
@@ -179,9 +179,9 @@ def plot_stripes(stripes, lung_size):
                         write = 1
         edges = np.arange(lung_size+1)                    
         qmesh = plt.pcolormesh(edges, edges, lung.transpose(), cmap="seismic")  
-        cbar = plt.colorbar(qmesh, ticks=[0,1])
+        #cbar = plt.colorbar(qmesh, ticks=[0,1])
         
-        cbar.ax.set_yticklabels(["Mucus","Scilia"])
+        #cbar.ax.set_yticklabels(["Mucus","Scilia"])
         plt.savefig("Lung%d-Stripe%d"%(lung_size, strip))
             
             
