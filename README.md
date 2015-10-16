@@ -10,7 +10,7 @@ Problems still need to be addressed:
 
 Here's the basic use case:
 
-go into the direcotyr
+go into the directory
 go into ipython
 
     import lung_sim 
