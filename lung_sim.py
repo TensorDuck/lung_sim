@@ -133,7 +133,7 @@ def histogram_all(time_list, stripes, spacing=100, title="plot", plot_axis=None)
     
     plt.legend()
     plt.xlabel("Number of Time Steps")
-    plt.ylabel("Counts")
+    plt.ylabel("Probability")
     plt.title(title)
     plt.tight_layout()
     if not plot_axis == None:
