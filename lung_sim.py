@@ -182,6 +182,8 @@ def plot_stripes(stripes, lung_size):
         #cbar = plt.colorbar(qmesh, ticks=[0,1])
         
         #cbar.ax.set_yticklabels(["Mucus","Scilia"])
+        qmesh.axes.get_xaxis().set_visible(False)
+        qmesh.axes.get_yaxis().set_visible(False)
         plt.savefig("Lung%d-Stripe%d"%(lung_size, strip))
             
             
